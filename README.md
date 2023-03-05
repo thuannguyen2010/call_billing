@@ -86,11 +86,7 @@ This project contains many layers:
 
 #### 1.2. Start project
 
-##### 1.2.1. Build app using docker
-
-##### 1.2.2. Using docker compose
-
-##### 1.2.3. Build app without docker
+##### 1.2.1. Build app without docker
 
 1. Create virtualenv
 
@@ -110,6 +106,18 @@ source .venv/bin/activate
 
 ```
 (.venv) python manage runserver
+```
+The app will run on port ```8000```
+
+##### 1.2.2. Using docker compose
+in ```docker-compose.yaml```, there are 2 services: ```db``` and ```django```
+- For compose v2:
+```javascript
+docker compose up -d
+```
+- For compose v1:
+```javascript
+docker-compose up -d
 ```
 The app will run on port ```8000```
 ### 2. API Usages
