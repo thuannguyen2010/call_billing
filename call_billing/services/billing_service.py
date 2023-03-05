@@ -1,10 +1,12 @@
 # Services for handling business logic and pushing data to database
+import logging
 from dataclasses import dataclass
 
 from django.db.models import Count, Sum
 
 from call_billing.models import Call
 
+_logger = logging.getLogger(__name__)
 NUM_OF_SECONDS_EACH_BLOCK = 30 * 1000  # in milliseconds
 
 
@@ -18,6 +20,7 @@ def billing_get(user_name: str) -> BillingData:
     """
     Get billing of a user by number blocks of duration
     """
+    _logger.info(f"BillingService - billing get - user_name={user_name}")
     call_queryset = Call.objects.filter(user_name=user_name).values('user_name').annotate(
         call_count=Count('id'),
         duration_sum=Sum('call_duration')

@@ -1,3 +1,4 @@
+# Define model for call object
 from django.db import models
 from django.utils import timezone
 

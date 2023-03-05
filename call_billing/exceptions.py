@@ -1,3 +1,4 @@
+# Exceptions of app
 class ApplicationError(Exception):
     def __init__(self, message, extra=None):
         super().__init__(message)
